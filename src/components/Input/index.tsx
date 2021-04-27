@@ -1,8 +1,6 @@
-import { FC } from 'react';
+import { FC, InputHTMLAttributes } from 'react';
 
-type InputProps = { placeholder?: string; };
-
-const Input: FC<InputProps> = (props) => (
+const Input: FC<InputHTMLAttributes<HTMLInputElement>> = (props) => (
   <input {...props} />
 );
 

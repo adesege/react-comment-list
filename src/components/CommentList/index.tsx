@@ -9,7 +9,7 @@ type CommnetListProps = {
 const CommentList: FC<CommnetListProps> = ({ comments }) => (
   <>
     {comments.map((comment) => (
-      <CommentListItem {...comment} />
+      <CommentListItem key={comment.text} {...comment} />
     ))}
   </>
 );
