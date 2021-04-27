@@ -1,8 +1,8 @@
-import { KeyboardEventHandler, useState } from 'react';
+import { KeyboardEventHandler, useEffect, useState } from 'react';
 import CommentList from '~/components/CommentList';
 import Input from '~/components/Input';
 import { useAppDispatch } from '~/store';
-import { addCommentAction } from '~/store/comment';
+import { addCommentAction, fetchCommentAction } from '~/store/comment';
 import useComment from '~/store/comment/useComment';
 
 const Comment = () => {
@@ -11,6 +11,11 @@ const Comment = () => {
 
   const dispatch = useAppDispatch();
   const { comments } = useComment();
+
+  useEffect(() => {
+    dispatch(fetchCommentAction());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const onSubmitComment = async () => {
     await dispatch(addCommentAction({ text: commentText, author: 'Budha', createdDate: Date.now().toString() }));
