@@ -79,7 +79,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.s?css$/i,
+        test: /\.css$/i,
         use: [
           isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
